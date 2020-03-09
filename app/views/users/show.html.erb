@@ -1,13 +1,19 @@
 <div class="container mt-5">
   <% if @user.photo.attached? %>
-    <%= image_tag @user.photo.key, class: "avatar-large" %>
+    <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
   <% elsif @user.gender == "0" %>
     <%= image_tag "https://w0.pngwave.com/png/129/94/computer-icons-avatar-icon-design-male-teacher-png-clip-art-thumbnail.png", class: "avatar-large" %>
   <% else %>
-    <%= image_tag "https://rajcooling.com/wp-content/uploads/sites/270/2016/05/avatar.png", class: "avatar-large" %>
+    <%= image_tag "https://rajcooling.com/wp-content/uploads/sites/270/2016/05/avatar.png", class: "avatar-large mb-3" %>
   <% end %>
-  <%= @user.firstname %>
-  <%= @user.lastname %>
-  <%= @user.age %>
-  <%= @user.gender %>
+  <h1> <%= @user.firstname + " " +  @user.lastname %> </h1>
+  <h3> <%= @user.age %> ans </h3>
+  <% if @user.gender == "0" %>
+    <p> Female </p>
+  <% else %>
+    <p> Male </p>
+  <% end %>
+<%= link_to "edit profile", edit_user_path(current_user) %>
+<%= link_to "delete account", user_registration_path, method: :delete%>
+
 </div>

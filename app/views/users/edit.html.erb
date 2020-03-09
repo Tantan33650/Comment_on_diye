@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :age %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Edit profile", class: "btn btn-primary" %>
+  <% end %>
+</div>
