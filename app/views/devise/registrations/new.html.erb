@@ -13,6 +13,13 @@
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "lastname" }%>
+      <%= f.input :gender, as: :radio_buttons, collection: [['0', 'female'], ['1', 'male']], label_method: :second, value_method: :first,
+                  required: true,
+                  input_html: { autocomplete: "lastname" }%>
+      <%= f.input :age,
+                  required: true,
+                  collection: 18..60,
+                  input_html: { autocomplete: "age" }%>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
