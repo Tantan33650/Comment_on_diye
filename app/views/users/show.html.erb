@@ -1,19 +1,20 @@
 <div class="container mt-5">
   <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
-  <% elsif @user.gender == "0" %>
-    <%= image_tag "https://w0.pngwave.com/png/129/94/computer-icons-avatar-icon-design-male-teacher-png-clip-art-thumbnail.png", class: "avatar-large" %>
-  <% else %>
-    <%= image_tag "https://rajcooling.com/wp-content/uploads/sites/270/2016/05/avatar.png", class: "avatar-large mb-3" %>
+      <%= cl_image_tag @user.photo.key, class: "avatar-large mb-4" %>
+    <% elsif @user.gender == "0" %>
+      <%= image_tag "https://w0.pngwave.com/png/129/94/computer-icons-avatar-icon-design-male-teacher-png-clip-art-thumbnail.png", class: "avatar-large mb-4" %>
+    <% else %>
+      <%= image_tag "https://rajcooling.com/wp-content/uploads/sites/270/2016/05/avatar.png", class: "avatar-large mb-4" %>
   <% end %>
-  <h1> <%= @user.firstname + " " +  @user.lastname %> </h1>
+  <h1> <%= @user.username %> </h1>
+  <h2> <%= @user.firstname + " " +  @user.lastname %> </h2>
   <h3> <%= @user.age %> ans </h3>
   <% if @user.gender == "0" %>
-    <p> Female </p>
+    <h4> Female </h4>
   <% else %>
-    <p> Male </p>
+    <h4> Male </h4>
   <% end %>
-<%= link_to "edit profile", edit_user_path(current_user) %>
-<%= link_to "delete account", user_registration_path, method: :delete%>
+<%= link_to "edit profile", edit_user_path(current_user), class: "btn btn-primary" %>
+<%= link_to "delete account", user_registration_path, method: :delete, class: "btn btn-danger" %>
 
 </div>

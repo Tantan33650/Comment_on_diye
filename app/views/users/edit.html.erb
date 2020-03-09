@@ -2,8 +2,9 @@
   <%= simple_form_for @user do |f| %>
     <%= f.input :firstname %>
     <%= f.input :lastname %>
-    <%= f.input :age %>
+    <%= f.input :username %>
+    <%= f.input :age, collection: 13..90 %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit "Edit profile", class: "btn btn-primary" %>
+    <%= f.submit "Edit profile", class: "btn btn-success" %>
   <% end %>
 </div>
